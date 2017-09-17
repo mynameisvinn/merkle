@@ -16,4 +16,4 @@ generate_merkle_root(transactions)  # returns e5fb69843938b939e7f1823414b2e3aaa5
 ```
 
 a simple implementation calculates merkle roots:
-![merkle tree](http://orm-chimera-prod.s3.amazonaws.com/1234000001802/images/msbt_0702.png =50x) 
+![merkle tree](http://orm-chimera-prod.s3.amazonaws.com/1234000001802/images/msbt_0702.png){:height="50%" width="50%"} 
