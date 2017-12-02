@@ -1,8 +1,25 @@
-# merkle dags
-applying a cryptographic hash function on top of a graph was ralph merkle’s big idea, and it has led to cool things like git, ipfs, blockchain.
+# merkle
+combining hash functions with graphs was ralph merkle’s big idea. merkle dags are everywhere you want data integrity *through self verification*: git, ipfs, blockchain.
 
-## why?
-merkle dags allow efficient (and privacy preserving, partially) verification of data collections. data might be transactions, code commits, etc.
+#### whats a merkle tree?
+we have a hashing function $h(x)$ and four records a, b, c, d. a merkle tree would be y:
+```
+h_ab = h[h(a) + h(b)]
+h_cd = h[h(c) + h(d)]
+root_hash = h(h_ab + h_cd)
+```
+
+#### whats a merkle dag?
+a merkle dag is an *acylic* collection of merkle trees. by referencing its predecessor's root hash, a merkle dag tracks history.
+```
+h_ab = h[h(a) + h(b)]
+h_cd = h[h(c) + h(d)]
+root_hash_1 = h(h_ab + h_cd)
+
+h_ef = h[h(e) + h(f)]
+h_gh = h[h(g) + h(h)]
+root_hash_2 = h(h_ef + h_gh + root_hash_1)  # 2nd root hash knows its parent
+```
 
 ## usage
 ```python
